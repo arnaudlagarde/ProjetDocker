@@ -37,8 +37,8 @@ Before you begin, ensure you have the following:
 
 The project directory structure is organized as follows:
 
-- `web1/` and `web2/`: Dockerfile and application files for web services.
-- `db/`: Dockerfile and configuration for the database.
+- `web1/`: Dockerfile and application files for the first web service.
+- `web2/`: Dockerfile and application files for the second web service.
 - `haproxy.cfg`: HaProxy configuration file.
 - `docker-compose.yml`: Docker Compose configuration file.
 - `certs/`: Directory for SSL/TLS certificates (not included in the repository).
@@ -50,6 +50,7 @@ The project directory structure is organized as follows:
 3. Modify the `docker-compose.yml` file to match your environment and requirements.
 4. Open a terminal and navigate to the project directory.
 5. Run the following command to start the services:
+
 
 ```bash 
 docker-compose up
