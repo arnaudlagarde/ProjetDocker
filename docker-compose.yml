@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  loadbalancer:
+    image: haproxy:latest
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+      - ./certs:/etc/haproxy/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      dmz1:
+        ipv4_address: 192.168.50.2
+
+  web1:
+    image: YOUR_GITHUB_REPO_IMAGE_FOR_WEB1
+    networks:
+      dmz1:
+        ipv4_address: 192.168.50.3
+
+  web2:
+    image: YOUR_GITHUB_REPO_IMAGE_FOR_WEB2
+    networks:
+      dmz1:
+        ipv4_address: 192.168.50.4
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      dmz2:
+        ipv4_address: 10.0.50.2
+    volumes:
+      - db_data:/var/lib/mysql
+
+networks:
+  dmz1:
+    ipam:
+      config:
+        - subnet: 192.168.50.0/24
+  dmz2:
+    ipam:
+      config:
+        - subnet: 10.0.50.0/24
+
+volumes:
+  db_data:
+    arnaud/bdd
