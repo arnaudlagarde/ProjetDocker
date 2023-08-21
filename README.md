@@ -13,6 +13,11 @@ This project demonstrates the setup of a containerized infrastructure using Dock
 - [Contributing](#contributing)
 - [License](#license)
 
+## Technical Documentation
+
+Refer to the [technical documentation](Documentation.md) for detailed information on configuring the Docker project.
+
+
 ## Project Overview
 
 This project sets up a Docker-based infrastructure with the following components:
@@ -50,7 +55,6 @@ The project directory structure is organized as follows:
 3. Modify the `docker-compose.yml` file to match your environment and requirements.
 4. Open a terminal and navigate to the project directory.
 5. Run the following command to start the services:
-
 
 ```bash 
 docker-compose up
