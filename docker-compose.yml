@@ -14,13 +14,13 @@ services:
         ipv4_address: 192.168.50.2
 
   web1:
-    build: .
+    build: ./web1
     networks:
       dmz1:
         ipv4_address: 192.168.50.3
 
   web2:
-    build: .
+    build: ./web2
     networks:
       dmz1:
         ipv4_address: 192.168.50.4
@@ -37,6 +37,7 @@ services:
         ipv4_address: 10.0.50.2
     volumes:
       - /home/alagarde/bdd:/var/lib/mysql
+
 networks:
   dmz1:
     ipam:
@@ -46,6 +47,7 @@ networks:
     ipam:
       config:
         - subnet: 10.0.50.0/24
+
 volumes:
   db_data:
     driver: local
