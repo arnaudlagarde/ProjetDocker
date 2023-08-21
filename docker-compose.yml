@@ -14,13 +14,13 @@ services:
         ipv4_address: 192.168.50.2
 
   web1:
-    image: YOUR_GITHUB_REPO_IMAGE_FOR_WEB1
+    image: Dockerfile.web1
     networks:
       dmz1:
         ipv4_address: 192.168.50.3
 
   web2:
-    image: YOUR_GITHUB_REPO_IMAGE_FOR_WEB2
+    image: Dockerfile.web2
     networks:
       dmz1:
         ipv4_address: 192.168.50.4
