@@ -14,13 +14,13 @@ services:
         ipv4_address: 192.168.50.2
 
   web1:
-    image: Dockerfile.web1
+    build: .
     networks:
       dmz1:
         ipv4_address: 192.168.50.3
 
   web2:
-    image: Dockerfile.web2
+    build: .
     networks:
       dmz1:
         ipv4_address: 192.168.50.4
@@ -36,8 +36,7 @@ services:
       dmz2:
         ipv4_address: 10.0.50.2
     volumes:
-      - db_data:/var/lib/mysql
-
+      - /home/alagarde/bdd:/var/lib/mysql
 networks:
   dmz1:
     ipam:
@@ -47,7 +46,6 @@ networks:
     ipam:
       config:
         - subnet: 10.0.50.0/24
-
 volumes:
   db_data:
-    arnaud/bdd
+    driver: local
